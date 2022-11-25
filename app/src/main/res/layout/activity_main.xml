@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--DataBinding-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="name"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <!--       ToolBar
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:titleTextColor="?attr/colorOnPrimary" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+        -->
+
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/correo_input"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginBottom="8dp"
+            android:hint="@string/introduce_correo"
+            app:layout_constraintBottom_toTopOf="@+id/numero_cafes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+        <TextView
+            android:id="@+id/numero_cafes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:text="@string/numero_cafes"
+            app:layout_constraintBottom_toTopOf="@+id/cafes_input"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cafes_input"
+            android:layout_width="48dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/tipo_servicio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tipo_servicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/tipo_servicio"
+            app:layout_constraintBottom_toTopOf="@+id/button_barra"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <RadioButton
+            android:id="@+id/button_barra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:text="@string/consumo_barra"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/button_llevar"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <RadioButton
+            android:id="@+id/button_llevar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:text="@string/para_llevar"
+            app:layout_constraintBottom_toTopOf="@+id/button_consumo"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textStyle="bold"/>
+
+        <RadioButton
+            android:id="@+id/button_consumo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:text="@string/consumo_terraza"
+            app:layout_constraintBottom_toTopOf="@+id/helado_texto"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="8dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/helado_texto"
+            android:layout_width="156dp"
+            android:layout_height="25dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/con_helado"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/button_continuar"
+            app:layout_constraintEnd_toStartOf="@+id/helado_switch"
+            app:layout_constraintHorizontal_bias="0.88"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Switch
+            android:id="@+id/helado_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="56dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/button_continuar"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/button_continuar"
+            android:layout_width="320dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="296dp"
+            android:text="@string/continuar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.527"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
