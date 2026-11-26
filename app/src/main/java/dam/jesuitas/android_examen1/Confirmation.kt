@@ -1,59 +1,56 @@
 package dam.jesuitas.android_examen1
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import java.util.Locale
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_CORREO = "correo"
+private const val ARG_TOTAL = "total"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Confirmation.newInstance] factory method to
- * create an instance of this fragment.
- */
+/** Pantalla de confirmación: muestra el correo y el coste total del pedido. */
 class Confirmation : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private var correo: String = ""
+    private var total: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            correo = it.getString(ARG_CORREO, "")
+            total = it.getDouble(ARG_TOTAL, 0.0)
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_confirmation, container, false)
+    ): View? = inflater.inflate(R.layout.fragment_confirmation, container, false)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        view.findViewById<TextView>(R.id.confirmacion_correo).text =
+            getString(R.string.direccion_email) + ": " + correo
+        view.findViewById<TextView>(R.id.confirmacion_total).text =
+            getString(R.string.coste_total) + ": " + String.format(Locale.getDefault(), "%.2f €", total)
+        view.findViewById<Button>(R.id.confirmacion_boton).setOnClickListener {
+            Toast.makeText(requireContext(), R.string.pedido_confirmado, Toast.LENGTH_SHORT).show()
+            parentFragmentManager.popBackStack()
+        }
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Confirmation.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Confirmation().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        fun newInstance(correo: String, total: Double) = Confirmation().apply {
+            arguments = Bundle().apply {
+                putString(ARG_CORREO, correo)
+                putDouble(ARG_TOTAL, total)
             }
+        }
     }
 }

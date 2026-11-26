@@ -14,7 +14,9 @@
     <string name="direccion_email">Dirección e-mail</string>
     <string name="coste_total">Coste total</string>
     <string name="confirmar">Confirmar</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error_correo">Introduce un correo válido</string>
+    <string name="error_cafes">Introduce un número de cafés mayor que cero</string>
+    <string name="error_servicio">Elige un tipo de servicio</string>
+    <string name="pedido_confirmado">Pedido confirmado</string>
 
 </resources>
